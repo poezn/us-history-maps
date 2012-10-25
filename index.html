@@ -185,8 +185,8 @@
         $(document).ready(function() {
             $(maps).each(function(i, d) {
                 var files = $('<ul></ul>');
-                $(files).append('<li><a href="Shapefiles/' + d.id + '">Shapefile</a></li>')
-                    .append('<li><a href="Shapefiles/simplified/mapgroup' + d.id + '">Shapefile (preview)</a></li>')
+                $(files).append('<li><a href="https://github.com/poezn/us-history-maps/tree/master/Shapefiles/' + d.id + '">Shapefile</a></li>')
+                    .append('<li><a href="https://github.com/poezn/us-history-maps/tree/master/Shapefiles/simplified/' + d.id + '">Shapefile (preview)</a></li>')
                     .append('<li><a href="GeoJSON/' + d.id + '.geojson">GeoJSON</a></li>')
                     .append('<li><a href="GeoJSON/mapgroup' + d.id + '.geojson">GeoJSON (preview)</a></li>');
 

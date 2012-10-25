@@ -16,25 +16,191 @@
     <div class="wrapper">
       <header>
         <h1>US History Maps</h1>
-        <p>This project collects the map assets (Shapefiles and GeoJSON) that were used for the &quot;Manifest Destiny&quot; Visualization (http://michaelporath.com/projects/manifest-destiny)</p>
-
-        <p class="view"><a href="https://github.com/poezn/us-history-maps">View the Project on GitHub <small>poezn/us-history-maps</small></a></p>
-
+        <p>This project collects the map assets (Shapefiles and GeoJSON) that were used for the <a href="http://michaelporath.com/projects/manifest-destiny">&quot;Manifest Destiny&quot; Visualization</a></p>
+        <p>For each map on the right you can download both the Shapefile and the GeoJSON file. The simplified versions group shapes by category (US State, US Territory etc), yielding fewer shapes and smaller filesizes.</p>
 
         <ul>
           <li><a href="https://github.com/poezn/us-history-maps/zipball/master">Download <strong>ZIP File</strong></a></li>
           <li><a href="https://github.com/poezn/us-history-maps/tarball/master">Download <strong>TAR Ball</strong></a></li>
           <li><a href="https://github.com/poezn/us-history-maps">View On <strong>GitHub</strong></a></li>
         </ul>
+        <p>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+        <div style="text-align: center;">
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+        </div>
+        
       </header>
       <section>
-        <p>Test</p>
+        <ul id="iterations"></ul>
+        <div style="clear: both"></div>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/poezn">poezn</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+    <script src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript">
+    var maps = [{"source": "1789-03","id": 1789030,"date": "3/4/1789"},
+    {"source": "1789-08","id": 1789080,"date": "8/7/1789"},
+    {"source": "1790-04","id": 1790040,"date": "4/2/1790"},
+    {"source": "1790-05","id": 1790050,"date": "5/26/1790"},
+    {"source": "1791-03","id": 1791030,"date": "3/4/1791"},
+    {"source": "1791-09","id": 1791090,"date": "9/9/1791"},
+    {"source": "1792-03","id": 1792030,"date": "3/3/1792"},
+    {"source": "1792-06","id": 1792060,"date": "6/1/1792"},
+    {"source": "1794-01","id": 1794010,"date": "1/11/1794"},
+    {"source": "1795-10","id": 1795100,"date": "10/27/1795"},
+    {"source": "1796-06","id": 1796060,"date": "6/1/1796"},
+    {"source": "1798-04","id": 1798040,"date": "4/7/1798"},
+    {"source": "1800-07","id": 1800070,"date": "7/4/1800"},
+    {"source": "1800-07_1","id": 1800071,"date": "7/10/1800"},
+    {"source": "1800-10","id": 1800100,"date": "10/1/1800"},
+    {"source": "1802-04","id": 1802040,"date": "4/26/1802"},
+    {"source": "1803-03","id": 1803030,"date": "3/1/1803"},
+    {"source": "1803-04","id": 1803040,"date": "4/30/1803"},
+    {"source": "1804-03","id": 1804030,"date": "3/27/1804"},
+    {"source": "1804-10","id": 1804100,"date": "10/1/1804"},
+    {"source": "1805-01","id": 1805010,"date": "1/11/1805"},
+    {"source": "1805-07","id": 1805070,"date": "7/4/1805"},
+    {"source": "1809-03","id": 1809030,"date": "3/1/1809"},
+    {"source": "1810-04","id": 1810040,"date": "4/1/1810"},
+    {"source": "1810-10","id": 1810100,"date": "10/27/1810"},
+    {"source": "1812-04","id": 1812040,"date": "4/30/1812"},
+    {"source": "1812-05","id": 1812050,"date": "5/12/1812"},
+    {"source": "1812-06","id": 1812060,"date": "6/4/1812"},
+    {"source": "1813-04","id": 1813040,"date": "4/17/1813"},
+    {"source": "1816-12","id": 1816120,"date": "12/11/1816"},
+    {"source": "1817-03","id": 1817030,"date": "3/3/1817"},
+    {"source": "1817-12","id": 1817120,"date": "12/10/1817"},
+    {"source": "1818-10","id": 1818100,"date": "10/20/1818"},
+    {"source": "1818-12","id": 1818120,"date": "12/3/1818"},
+    {"source": "1819-03","id": 1819030,"date": "3/2/1819"},
+    {"source": "1819-12","id": 1819120,"date": "12/14/1819"},
+    {"source": "1820-03","id": 1820030,"date": "3/16/1820"},
+    {"source": "1821-07","id": 1821070,"date": "7/10/1821"},
+    {"source": "1821-08","id": 1821080,"date": "8/10/1821"},
+    {"source": "1821-09","id": 1821090,"date": "9/16/1821"},
+    {"source": "1821-09_1","id": 1821091,"date": "9/27/1821"},
+    {"source": "1822-03","id": 1822030,"date": "3/30/1822"},
+    {"source": "1824-11","id": 1824110,"date": "11/15/1824"},
+    {"source": "1825-01","id": 1825010,"date": "1/12/1825"},
+    {"source": "1828-05","id": 1828050,"date": "5/6/1828"},
+    {"source": "1834-06","id": 1834060,"date": "6/30/1834"},
+    {"source": "1836-03","id": 1836030,"date": "3/2/1836"},
+    {"source": "1836-06","id": 1836060,"date": "6/15/1836"},
+    {"source": "1836-07","id": 1836070,"date": "7/4/1836"},
+    {"source": "1837-01","id": 1837010,"date": "1/26/1837"},
+    {"source": "1837-03","id": 1837030,"date": "3/28/1837"},
+    {"source": "1838-07","id": 1838070,"date": "7/4/1838"},
+    {"source": "1842-11","id": 1842110,"date": "11/10/1842"},
+    {"source": "1845-03","id": 1845030,"date": "3/3/1845"},
+    {"source": "1845-12","id": 1845120,"date": "12/29/1845"},
+    {"source": "1846-06","id": 1846060,"date": "6/18/1846"},
+    {"source": "1846-08","id": 1846080,"date": "8/15/1846"},
+    {"source": "1846-12","id": 1846120,"date": "12/28/1846"},
+    {"source": "1847-01","id": 1847010,"date": "1/13/1847"},
+    {"source": "1847-03","id": 1847030,"date": "3/13/1847"},
+    {"source": "1848-02","id": 1848020,"date": "2/2/1848"},
+    {"source": "1848-05","id": 1848050,"date": "5/29/1848"},
+    {"source": "1848-08","id": 1848080,"date": "8/14/1848"},
+    {"source": "1849-03","id": 1849030,"date": "3/3/1849"},
+    {"source": "1850-09","id": 1850090,"date": "9/9/1850"},
+    {"source": "1853-03","id": 1853030,"date": "3/2/1853"},
+    {"source": "1853-12","id": 1853120,"date": "12/30/1853"},
+    {"source": "1854-05","id": 1854050,"date": "5/30/1854"},
+    {"source": "1858-05","id": 1858050,"date": "5/11/1858"},
+    {"source": "1859-02","id": 1859020,"date": "2/14/1859"},
+    {"source": "1860-02","id": 1860020,"date": "2/8/1860"},
+    {"source": "1860-12","id": 1860120,"date": "12/20/1860"},
+    {"source": "1861-01","id": 1861010,"date": "1/9/1861"},
+    {"source": "1861-01_1","id": 1861011,"date": "1/10/1861"},
+    {"source": "1861-01_2","id": 1861012,"date": "1/11/1861"},
+    {"source": "1861-01_3","id": 1861013,"date": "1/19/1861"},
+    {"source": "1861-01_4","id": 1861014,"date": "1/26/1861"},
+    {"source": "1861-01_5","id": 1861015,"date": "1/29/1861"},
+    {"source": "1861-02","id": 1861020,"date": "2/1/1861"},
+    {"source": "1861-02_1","id": 1861021,"date": "2/8/1861"},
+    {"source": "1861-02_2","id": 1861022,"date": "2/28/1861"},
+    {"source": "1861-03","id": 1861030,"date": "3/2/1861"},
+    {"source": "1861-03_1","id": 1861031,"date": "3/2/1861"},
+    {"source": "1861-04","id": 1861040,"date": "4/12/1861"},
+    {"source": "1861-04_1","id": 1861041,"date": "4/17/1861"},
+    {"source": "1861-05","id": 1861050,"date": "5/6/1861"},
+    {"source": "1861-05_1","id": 1861051,"date": "5/7/1861"},
+    {"source": "1861-05_2","id": 1861052,"date": "5/18/1861"},
+    {"source": "1861-05_3","id": 1861053,"date": "5/20/1861"},
+    {"source": "1861-05_4","id": 1861054,"date": "5/21/1861"},
+    {"source": "1861-07","id": 1861070,"date": "7/2/1861"},
+    {"source": "1861-08","id": 1861080,"date": "8/1/1861"},
+    {"source": "1861-10","id": 1861100,"date": "10/31/1861"},
+    {"source": "1861-11","id": 1861110,"date": "11/20/1861"},
+    {"source": "1861-12","id": 1861120,"date": "11/28/1861"},
+    {"source": "1861-12_1","id": 1861121,"date": "12/10/1861"},
+    {"source": "1862-07","id": 1862070,"date": "7/14/1862"},
+    {"source": "1863-02","id": 1863020,"date": "2/24/1863"},
+    {"source": "1863-03","id": 1863030,"date": "3/4/1863"},
+    {"source": "1863-06","id": 1863060,"date": "6/20/1863"},
+    {"source": "1864-05","id": 1864050,"date": "5/26/1864"},
+    {"source": "1864-10","id": 1864100,"date": "10/31/1864"},
+    {"source": "1865-04","id": 1865040,"date": "4/9/1865"},
+    {"source": "1866-05","id": 1866050,"date": "5/5/1866"},
+    {"source": "1866-07","id": 1866070,"date": "7/24/1866"},
+    {"source": "1867-01","id": 1867010,"date": "1/18/1867"},
+    {"source": "1867-03","id": 1867030,"date": "3/1/1867"},
+    {"source": "1867-10","id": 1867100,"date": "10/11/1867"},
+    {"source": "1868-06","id": 1868060,"date": "6/22/1868"},
+    {"source": "1868-06_1","id": 1868061,"date": "6/25/1868"},
+    {"source": "1868-07","id": 1868070,"date": "7/4/1868"},
+    {"source": "1868-07_1","id": 1868071,"date": "7/9/1868"},
+    {"source": "1868-07_2","id": 1868072,"date": "7/13/1868"},
+    {"source": "1868-07_3","id": 1868073,"date": "7/25/1868"},
+    {"source": "1870-01","id": 1870010,"date": "1/26/1870"},
+    {"source": "1870-02","id": 1870020,"date": "2/23/1870"},
+    {"source": "1870-03","id": 1870030,"date": "3/30/1870"},
+    {"source": "1870-07","id": 1870070,"date": "7/15/1870"},
+    {"source": "1872-10","id": 1872100,"date": "10/21/1872"},
+    {"source": "1876-08","id": 1876080,"date": "8/1/1876"},
+    {"source": "1882-03","id": 1882030,"date": "3/28/1882"},
+    {"source": "1884-05","id": 1884050,"date": "5/17/1884"},
+    {"source": "1889-11","id": 1889110,"date": "11/2/1889"},
+    {"source": "1889-11_1","id": 1889111,"date": "11/8/1889"},
+    {"source": "1889-11_2","id": 1889112,"date": "11/11/1889"},
+    {"source": "1890-05","id": 1890050,"date": "5/2/1890"},
+    {"source": "1890-07","id": 1890070,"date": "7/3/1890"},
+    {"source": "1890-07_1","id": 1890071,"date": "7/10/1890"},
+    {"source": "1894-07","id": 1894070,"date": "7/4/1894"},
+    {"source": "1896-01","id": 1896010,"date": "1/4/1896"},
+    {"source": "1896-05","id": 1896050,"date": "5/4/1896"},
+    {"source": "1898-08","id": 1898080,"date": "8/12/1898"},
+    {"source": "1900-06","id": 1900060,"date": "6/14/1900"},
+    {"source": "1903-10","id": 1903100,"date": "10/20/1903"},
+    {"source": "1907-11","id": 1907110,"date": "11/16/1907"},
+    {"source": "1912-01","id": 1912010,"date": "1/6/1912"},
+    {"source": "1912-02","id": 1912020,"date": "2/14/1912"},
+    {"source": "1912-08","id": 1912080,"date": "8/24/1912"},
+    {"source": "1921-03","id": 1921030,"date": "3/28/1921"},
+    {"source": "1959-01","id": 1959010,"date": "1/3/1959"},
+    {"source": "1959-08","id": 1959080,"date": "8/21/1959"}]
+        $(document).ready(function() {
+            $(maps).each(function(i, d) {
+                var files = $('<ul></ul>');
+                $(files).append('<li><a href="Shapefiles/' + d.id + '">Shapefile</a></li>')
+                    .append('<li><a href="Shapefiles/simplified/' + d.id + '">Shapefile (preview)</a></li>')
+                    .append('<li><a href="GeoJSON/' + d.id + '.geojson">GeoJSON</a></li>')
+                    .append('<li><a href="GeoJSON/mapgroup' + d.id + '.geojson">GeoJSON (preview)</a></li>');
+
+                var row = $('<li class="iteration"><div class="map" style="background-position:0px -'+(170*i)+'px;">&nbsp;</div><div class="date">' + d.date + '</div><div class="files"></div></li>'); 
+                
+                $(row).find('.files').append(files);
+                $('section ul#iterations').append(row);
+            })
+
+            $('.iteration:nth-child(even)').addClass('even');
+            $('.iteration:nth-child(odd)').addClass('odd');
+        });
+        
+    </script>
     <script src="javascripts/scale.fix.js"></script>
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -46,6 +212,5 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
   </body>
 </html>

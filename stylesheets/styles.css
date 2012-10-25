@@ -183,6 +183,46 @@ footer {
   bottom:50px;
 }
 
+#iterations {
+    margin: 0;
+    padding: 0;
+}
+
+.iteration {
+    clear: both;
+    list-style: none outside;
+    height: 150px;
+    width: 480px;
+    padding: 10px;
+}
+
+.iteration.even {
+    background-color: #E7E7E7;
+}
+
+.iteration.odd {
+    background-color: #F3F2F2;
+}
+
+.date, .files {
+    float: left;
+    padding-top: 10px;
+}
+
+.date {
+    font-weight: bold;
+    padding-left: 30px;
+    width: 80px;
+}
+
+.map {
+    float: left;
+    width: 190px;
+    height: 150px;
+    background-image: url('../allmaps.png');
+}
+
+
 @media print, screen and (max-width: 960px) {
   
   div.wrapper {
